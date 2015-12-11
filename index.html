@@ -48,11 +48,11 @@
     <script src="js/jquery.flot.js"></script>
     <script src="js/jquery.flot.selection.js"></script>
     <script src="js/excanvas.js"></script>
-    <script src="js/jquery.flot.pie.js"></script>
+    <!--<script src="js/jquery.flot.pie.js"></script>
     <script src="js/jquery.flot.stack.js"></script>
     <script src="js/jquery.flot.time.js"></script>
     <script src="js/jquery.flot.tooltip.js"></script>
-    <script src="js/jquery.flot.resize.js"></script>
+    <script src="js/jquery.flot.resize.js"></script>-->
     <script src="js/jquery.collapsible.js"></script>
     <script src="js/accordion.nav.js"></script>
     <script src="js/jquery.gritter.js"></script>
@@ -61,6 +61,29 @@
     <script src="js/respond.min.js"></script>
     <script src="js/ios-orientationchange-fix.js"></script>
     <script src="js/stepy.jquery.js"></script>
+    <script src="js/date.js"></script>
+    <script src="js/daterangepicker.js"></script>
+    <script src="js/bootstrap-datetimepicker.min.js"></script>
+    <link href="css/chosen.css" rel="stylesheet">
+    <script src="js/chosen.jquery.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#datetimepicker1').datetimepicker({
+                pickTime: false
+            });
+        });
+        $(function () {
+            $('#datetimepicker2').datetimepicker({
+                pickTime: false
+            });
+        });
+        $(function () {
+            $(".chzn-select").chosen();
+            $(".chzn-select-deselect").chosen({
+                allow_single_deselect: true
+            });
+        });
+    </script>
 
 </head>
 <body>
@@ -110,8 +133,71 @@
                 </ul>
             </div>
         </div>
-                <div class="container">
+        <div class="container">
             <h3>Статистика</h3>
+            <div class="row">
+                <div class="span12">
+                    <div class="content-widgets light-gray">
+                        <div class="widget-head gray">
+                            <h4>Различные отчеты по посетителям и использованию мессенджера.</h4>
+                        </div>
+                        <div class="widget-container">
+                            <form class="form-horizontal">
+                                <div class="control-group">
+                                    <label class="control-label">Дата </label>
+                                    <div class="controls">
+                                        <i> c </i>
+                                        <div id="datetimepicker1" class="input-append date">
+                                            <input data-format="dd/MM/yyyy hh:mm:ss" type="text"><span class="add-on "><i data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span>
+                                        </div>
+                                        <i> по </i>
+                                        <div id="datetimepicker2" class="input-append">
+                                            <input data-format="yyyy-MM-dd" type="text"><span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="widget-container">
+                                <form class="form-horizontal">
+                                    <div class="control-group">
+                                        <label class="control-label">Выбор группы пользователей</label>
+                                        <div class="controls">
+                                            <select data-placeholder="Выбрать группу..." class="chzn-select span6" multiple tabindex="4">
+                                                <option value=""></option>
+                                                <option value="Group#1">Первая группа</option>
+                                                <option value="Group#2">Вторая группа</option>
+                                                <option value="Group#3">Третья группа</option>
+                                                <option value="Group#4">Четвёртая группа</option>
+                                                <option value="Group#5">Пятая группа</option>
+                                                <option value="Group#6">Шестая группа</option>
+                                                <option value="Group#7">Седьмая группа</option>
+                                                <option value="Group#8">Восьмая группа</option>
+                                                <option value="Group#9">Девятая группа</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="control-group">
+                                        <label class="control-label">Выбор операторов</label>
+                                        <div class="controls">
+                                            <select data-placeholder="Выбрать операторов для просмотра статистики" multiple class="chzn-select span6" tabindex="8">
+                                                <option value=""></option>
+                                                <option>Иванов</option>
+                                                <option>Петров</option>
+                                                <option>Сидоров</option>
+                                                <option>Козлов</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
             <div class="tabbable" id="myTab">
                 <ul class="nav nav-tabs">
                     <li class="active"><a data-toggle="tab" href="#panel1" id="aPanel1">Использование мессенджера по дням</a></li>
